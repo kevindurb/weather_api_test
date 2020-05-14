@@ -1,0 +1,3 @@
+#! /bin/bash
+
+./rest/mockLocation 39.7456 -97.0892 | ./rest/weatherGov | ./rest/weatherForecast

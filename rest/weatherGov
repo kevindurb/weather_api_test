@@ -1,0 +1,10 @@
+#! /bin/bash
+
+LOCATION=$(cat -)
+LATITUDE=$(echo $LOCATION | jq .latitude)
+LONGITUDE=$(echo $LOCATION | jq .longitude)
+
+http "https://api.weather.gov/points/$LATITUDE,$LONGITUDE" \
+  --check-status \
+  --ignore-stdin \
+ | jq

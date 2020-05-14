@@ -1,0 +1,6 @@
+#! /bin/bash
+
+http http://ip-api.com/json \
+  --check-status \
+  --ignore-stdin \
+ | jq "{latitude: .lat, longitude: .lon}"

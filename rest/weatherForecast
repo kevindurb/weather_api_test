@@ -1,0 +1,9 @@
+#! /bin/bash
+
+DATA=$(cat -)
+FORECAST_URL=$(echo $DATA | jq -r .properties.forecast)
+
+http "$FORECAST_URL" \
+  --check-status \
+  --ignore-stdin \
+ | jq

@@ -1,0 +1,13 @@
+#! /bin/bash
+
+http https://geocoding.geo.census.gov/geocoder/locations/onelineaddress \
+  format==json \
+  benchmark==4 \
+  address=="$1" \
+  --check-status \
+  --ignore-stdin \
+ | jq \
+ "{ \
+    latitude: .result.addressMatches[0].coordinates.y, \
+    longitude: .result.addressMatches[0].coordinates.x \
+  }"

@@ -1,0 +1,3 @@
+#! /bin/bash
+
+echo "{\"latitude\":$1,\"longitude\":$2}" | jq
